@@ -137,7 +137,7 @@ func (c *client) InTx(ctx context.Context, isoLevel pgx.TxIsoLevel, f func(ctx c
 		return fmt.Errorf("starting transaction: %w", err)
 	}
 
-	// Устанавливаем транзакцию в контекст
+	// Setting the transaction in context
 	ctxWithTx := contextWithTx(ctx, tx)
 
 	if err := f(ctxWithTx); err != nil {
